@@ -31,3 +31,12 @@ class Customer(Person):
         self.deposit_amount = deposit_amount
         self.balance = self.balance + self.deposit_amount
         print(f"Ammount balance has been changed {self.balance}")
+        
+    def withdraw(self, withdraw_amount):
+        self.withdraw_amount = withdraw_amount
+        if self.withdraw_amount > self.balance:
+            print(f"Your account balance is insufficient")
+            
+        else:
+            self.balance = self.balance - self.withdraw_amount
+            print(f"Ammount balance has been changed {self.balance}")
