@@ -26,3 +26,8 @@ class Customer(Person):
         account.creat_account_number()
         
         return account.creat_account_number
+    
+    def deposit(self, deposit_amount):
+        self.deposit_amount = deposit_amount
+        self.balance = self.balance + self.deposit_amount
+        print(f"Ammount balance has been changed {self.balance}")
