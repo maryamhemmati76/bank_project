@@ -1,6 +1,6 @@
 from src.person import Person
 from src.account import Account
-
+from src.loan import Loan
 
 class Customer(Person):
     def __init__(self, name, family, national_code, hometown=None, balance=0, has_taken_loan=False):
@@ -8,7 +8,7 @@ class Customer(Person):
         self.hometown = hometown
         self.loan_number = None
         self.balance = balance
-        self.has_taken_loan = has_taken_loan
+        # self.has_taken_loan = has_taken_loan
         self.bank_accounts = []
         self.account = None
         self.has_taken_loan = False
@@ -40,3 +40,21 @@ class Customer(Person):
         else:
             self.balance = self.balance - self.withdraw_amount
             print(f"Ammount balance has been changed {self.balance}")
+            
+    def request_loan(self, branch_name, loan_amount):
+        if branch_name.enable_loan and branch_name.budget > loan_amount:
+            if not self.has_taken_loan:
+                if self.balance > loan_amount:
+                    loan_number = Loan.create_loan_number()
+                    new_loan = Loan(loan_number, loan_amount, self.national_code, self.account.account_number, branch.bank_id)
+                    branch_name.give_loan(loan_number, loan_amount, self.national_code)
+                    self.balance += loan_amount
+                    self.has_taken_loan = True
+                    print(f"Loan of {loan_amount} granted successfully to Customer {self.name}")
+                else:
+                    print("Customer does not have enough balance for the loan.")
+            else:
+                print("Customer has already taken a loan from this branch.")
+        else:
+            print("Branch cannot grant a loan at the moment.")
+            
