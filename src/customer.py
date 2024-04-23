@@ -58,3 +58,7 @@ class Customer(Person):
         else:
             print("Branch cannot grant a loan at the moment.")
             
+            
+    def show_details(self):
+        print(f"Name: {self.name}, Family: {self.family}, National Code: {self.national_code}, Balance: {self.balance}")
+        print(f"Accounts: {self.bank_accounts}, Loan Number: {self.loan_number}, Hometown: {self.hometown or 'Not provided'}")

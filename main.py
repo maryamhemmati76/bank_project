@@ -16,19 +16,23 @@ number_of_customer = int(input("Enter the number_of_customer: "))
 budget = int(input("Enter the budget: "))
 balance = int(input("Enter your balance: "))
 
-customer1.get_hometown()
+# customer1.get_hometown()
+customer1.show_details()
 
 
-initial_amount = int(input("Enter initial amount: "))
-account = customer1.deposit_and_get_account_number(initial_amount)
 
-customer1.deposit(deposit_amount)
-customer1.withdraw(withdraw_amount)
+# initial_amount = int(input("Enter initial amount: "))
+# account = customer1.deposit_and_get_account_number(initial_amount)
 
-customer1.request_loan(branch_name, loan_amount)
-branch = Branch(branch_name, bank_id, city_name, number_of_customer, budget)
-customer = Customer(name, family, national_code, balance, has_taken_loan=False)
-customer.request_loan(branch, loan_amount)
+# customer1.deposit(deposit_amount)
+# customer1.withdraw(withdraw_amount)
+
+# customer1.request_loan(branch_name, loan_amount)
+# branch = Branch(branch_name, bank_id, city_name, number_of_customer, budget)
+# customer = Customer(name, family, national_code, balance, has_taken_loan=False)
+# customer.request_loan(branch, loan_amount)
+
+
 
 
 
